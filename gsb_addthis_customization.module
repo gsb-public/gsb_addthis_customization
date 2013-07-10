@@ -1,0 +1,19 @@
+<?php
+
+function gsb_addthis_customization_addthis_markup_alter(&$markup) {
+
+  $test = 'test';
+
+  $markup['counter'] = array(
+    '#theme' => 'addthis_element',
+    '#tag' => 'a',
+    '#value' => '',
+    '#attributes' => array(
+    'class' => array('addthis_counter', 'addthis_pill_style'),
+    ),
+  );
+
+  $markup['google_plusone']['#attributes']['g:plusone:size'] = 'medium';
+
+}
+
