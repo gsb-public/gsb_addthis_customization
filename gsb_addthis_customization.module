@@ -2,6 +2,8 @@
 
 function gsb_addthis_customization_addthis_markup_alter(&$markup) {
 
+  $module_path = drupal_get_path('module', 'gsb_addthis_customization');
+
   $markup['counter'] = array(
     '#theme' => 'addthis_element',
     '#tag' => 'a',
@@ -9,7 +11,9 @@ function gsb_addthis_customization_addthis_markup_alter(&$markup) {
     '#attributes' => array(
       'class' => array('addthis_counter', 'addthis_bubble_style'),
     ),
-    '#suffix' => '<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=gsbadmin"></script>',                
+    '#prefix' => '<link rel="stylesheet" media="all" href="/' . $module_path . '/gsb_addthis_customization' . '.css" />',
+    '#suffix' => '<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>' . 
+                 '<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=gsbadmin"></script>',    
   );
 
 }
